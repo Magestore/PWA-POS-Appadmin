@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ Copyright © 2018 Magestore. All rights reserved.
+  ~ See COPYING.txt for license details.
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magestore_Appadmin::appSetting" title="POS App Settings">
+                    <resource id="Magestore_Appadmin::manageStaffs" title="Manage Staffs" sortOrder="10"/>
+                    <resource id="Magestore_Appadmin::manageRoles" title="Manage Roles" sortOrder="20"/>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
