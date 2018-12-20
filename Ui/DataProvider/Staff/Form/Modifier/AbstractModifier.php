@@ -25,9 +25,11 @@ class AbstractModifier extends \Magestore\Appadmin\Ui\DataProvider\Form\Modifier
     /**
      * @return \Magestore\Appadmin\Model\Staff\Staff|mixed
      */
-    public function getCurrentStaff() {
-        if (!$this->currentStaff)
+    public function getCurrentStaff()
+    {
+        if (!$this->currentStaff) {
             $this->currentStaff = $this->registry->registry('current_staff');
+        }
         return $this->currentStaff;
     }
 }

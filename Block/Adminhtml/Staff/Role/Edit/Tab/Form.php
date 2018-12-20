@@ -10,8 +10,7 @@ namespace Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit\Tab;
  * Class Form
  * @package Magestore\Giftwrap\Block\Adminhtml\Staff\Role\Edit\Tab
  */
-class Form extends \Magento\Backend\Block\Widget\Form\Generic
-    implements \Magento\Backend\Block\Widget\Tab\TabInterface
+class Form extends \Magento\Backend\Block\Widget\Form\Generic implements \Magento\Backend\Block\Widget\Tab\TabInterface
 {
 
     protected $_objectManager;
@@ -21,9 +20,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
         \Magento\Framework\Registry $registry,
         \Magento\Framework\Data\FormFactory $formFactory,
         \Magento\Framework\ObjectManagerInterface $objectManager,
-        array $data = array()
-    )
-    {
+        array $data = []
+    ) {
         $this->_objectManager = $objectManager;
         parent::__construct($context, $registry, $formFactory, $data);
     }
@@ -31,7 +29,8 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     /**
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    protected function _prepareLayout() {
+    protected function _prepareLayout()
+    {
         $this->getLayout()->getBlock('page.title')->setPageTitle($this->getPageTitle());
     }
 
@@ -47,28 +46,28 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
 
         $form = $this->_formFactory->create();
         $form->setHtmlIdPrefix('page_');
-        $fieldset = $form->addFieldset('base_fieldset', array('legend' => __('Role Information')));
+        $fieldset = $form->addFieldset('base_fieldset', ['legend' => __('Role Information')]);
 
         if ($model->getRoleId()) {
-            $fieldset->addField('role_id', 'hidden', array('name' => 'role_id','value' => $model->getRoleId()));
+            $fieldset->addField('role_id', 'hidden', ['name' => 'role_id','value' => $model->getRoleId()]);
         }
 
-        $fieldset->addField('name', 'text', array(
+        $fieldset->addField('name', 'text', [
             'label'     => __('Role Name'),
             'class'     => 'required-entry',
             'required'  => true,
             'maxlength' => 127,
             'name'      => 'name',
             'disabled' => false,
-        ));
+        ]);
 
 
-        $fieldset->addField('description', 'textarea', array(
+        $fieldset->addField('description', 'textarea', [
             'label'     => __('Description'),
             'name'      => 'description',
             'maxlength' => 255,
             'disabled' => false,
-        ));
+        ]);
 
         $form->setValues($model->getData());
         $this->setForm($form);
@@ -78,16 +77,20 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     /**
      * @return mixed
      */
-    public function getRole() {
+    public function getRole()
+    {
         return $this->_coreRegistry->registry('current_role');
     }
 
     /**
      * @return \Magento\Framework\Phrase
      */
-    public function getPageTitle() {
-        return $this->getRole()->getId() ? __("Edit Role %1",
-            $this->escapeHtml($this->getRole()->getDisplayName())) : __('New Role');
+    public function getPageTitle()
+    {
+        return $this->getRole()->getId() ? __(
+            "Edit Role %1",
+            $this->escapeHtml($this->getRole()->getDisplayName())
+        ) : __('New Role');
     }
 
     /**
@@ -122,6 +125,4 @@ class Form extends \Magento\Backend\Block\Widget\Form\Generic
     {
         return false;
     }
-
-
 }

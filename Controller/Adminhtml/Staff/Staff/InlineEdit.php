@@ -119,5 +119,4 @@ class InlineEdit extends \Magento\Backend\App\Action
     {
         return (bool)$this->getMessageManager()->getMessages(true)->getCount();
     }
-
 }

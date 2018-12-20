@@ -62,8 +62,7 @@ class Collection extends SearchResult
         \Magestore\Appadmin\Model\Source\Adminhtml\Role $role,
         \Magestore\Webpos\Model\Source\Adminhtml\Location $location,
         \Magento\Framework\App\RequestInterface $request
-    )
-    {
+    ) {
         $this->role = $role;
         $this->location = $location;
         $this->request = $request;
@@ -75,10 +74,10 @@ class Collection extends SearchResult
     {
         $data = parent::getData();
         if (($this->request->getActionName() == 'gridToCsv') || ($this->request->getActionName() == 'gridToXml')) {
-            $options = array(
+            $options = [
                 self::STATUS_ENABLED => __('Enabled'),
                 self::STATUS_DISABLED => __('Disabled')
-            );
+            ];
             $locationOptions = $this->location->getOptionArray();
             $roleOptions = $this->role->getOptionArray();
             foreach ($data as &$item) {
@@ -87,7 +86,7 @@ class Collection extends SearchResult
                 }
                 if ($item['location_ids']) {
                     $locationArray = explode(',', $item['location_ids']);
-                    $locationNameArray = array();
+                    $locationNameArray = [];
                     foreach ($locationArray as $locationId) {
                         if (isset($locationOptions[$locationId])) {
                             $locationName = $locationOptions[$locationId];

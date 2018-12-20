@@ -69,12 +69,13 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
      * get location list for form select element
      * return array
      */
-    public function getValuesForForm(){
+    public function getValuesForForm()
+    {
         $collection = $this->getCollection();
-        $options = array();
-        if($collection->getSize() > 0){
-            foreach ($collection as $role){
-                $options[] = array('value' => $role->getId(), 'label' => $role->getData('display_name'));
+        $options = [];
+        if ($collection->getSize() > 0) {
+            foreach ($collection as $role) {
+                $options[] = ['value' => $role->getId(), 'label' => $role->getData('display_name')];
             }
         }
         return $options;
@@ -83,8 +84,9 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
     /**
      * @return array
      */
-    public function getHashOption() {
-        $options = array();
+    public function getHashOption()
+    {
+        $options = [];
         $collection = $this->getCollection();
         foreach ($collection as $role) {
             $options[$role->getId()] = $role['display_name'];
@@ -123,7 +125,8 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
      * @api
      * @return string|null
      */
-    public function getName() {
+    public function getName()
+    {
         return $this->getData(self::NAME);
     }
 
@@ -134,7 +137,8 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
      * @param string $name
      * @return $this
      */
-    public function setName($name) {
+    public function setName($name)
+    {
         $this->setData(self::NAME, $name);
         return $this;
     }
@@ -144,7 +148,8 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
      * @api
      * @return string|null
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->getData(self::DESCRIPTION);
     }
 
@@ -155,7 +160,8 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
      * @param string $description
      * @return $this
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->setData(self::DESCRIPTION, $description);
         return $this;
     }
@@ -166,7 +172,8 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
      * @api
      * @return string|null
      */
-    public function getMaximumDiscountPercent() {
+    public function getMaximumDiscountPercent()
+    {
         return $this->getData(self::DESCRIPTION);
     }
 
@@ -177,7 +184,8 @@ class Role extends \Magento\Framework\Model\AbstractModel implements \Magestore\
      * @param string $discount
      * @return $this
      */
-    public function setMaximumDiscountPercent($discount) {
+    public function setMaximumDiscountPercent($discount)
+    {
         $this->setData(self::DESCRIPTION, $discount);
         return $this;
     }

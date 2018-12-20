@@ -244,4 +244,3 @@ class Permission extends \Magento\Backend\Block\Widget\Form implements \Magento\
         return isset($configResource['children']) ? $configResource['children'] : [];
     }
 }
-

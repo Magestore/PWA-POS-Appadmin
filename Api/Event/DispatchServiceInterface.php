@@ -2,7 +2,8 @@
 
 namespace Magestore\Appadmin\Api\Event;
 
-interface DispatchServiceInterface {
+interface DispatchServiceInterface
+{
     const EVENT_NAME_FORCE_SIGN_OUT = 'magestore_webpos_force_sign_out';
     const EVENT_NAME_FORCE_CHANGE_POS = 'magestore_webpos_force_change_pos';
 

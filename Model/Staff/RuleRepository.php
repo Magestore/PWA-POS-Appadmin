@@ -32,7 +32,8 @@ class RuleRepository implements \Magestore\Appadmin\Api\Staff\RuleRepositoryInte
     /**
      * @inheritdoc
      */
-    public function isAllowPermission($aclResource, $staffId){
+    public function isAllowPermission($aclResource, $staffId)
+    {
         $permissions = $this->getAllPermissionByStaffId($staffId);
         if (in_array('Magestore_Appadmin::all', $permissions) || in_array($aclResource, $permissions)) {
             return true;
@@ -45,9 +46,10 @@ class RuleRepository implements \Magestore\Appadmin\Api\Staff\RuleRepositoryInte
      * @return array
      * @throws \Magento\Framework\Exception\LocalizedException
      */
-    protected function getAllPermissionByStaffId($staffId) {
+    protected function getAllPermissionByStaffId($staffId)
+    {
         $staffModel = $this->staffRepository->getById($staffId);
-        $resourceAccess = array();
+        $resourceAccess = [];
         if ($staffModel->getId()) {
             $roleId = $staffModel->getRoleId();
             $resourceAccess = $this->getAllPermissionByRoleId($roleId);
@@ -59,8 +61,9 @@ class RuleRepository implements \Magestore\Appadmin\Api\Staff\RuleRepositoryInte
      * @param int $roleId
      * @return array
      */
-    protected function getAllPermissionByRoleId($roleId) {
-        $resourceAccess = array();
+    protected function getAllPermissionByRoleId($roleId)
+    {
+        $resourceAccess = [];
         $authorizationCollection = $this->collectionFactory->create()->addFieldToFilter('role_id', $roleId);
         foreach ($authorizationCollection as $resource) {
             $resourceAccess[] = $resource->getResourceId();

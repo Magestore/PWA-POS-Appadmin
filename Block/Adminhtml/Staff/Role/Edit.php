@@ -5,6 +5,7 @@
  */
 
 namespace Magestore\Appadmin\Block\Adminhtml\Staff\Role;
+
 /**
  * Class Edit
  * @package Magestore\Appadmin\Block\Adminhtml\Staff\Role
@@ -46,16 +47,15 @@ class Edit extends \Magento\Backend\Block\Widget\Form\Container
         $this->buttonList->update('delete', 'label', __('Delete'));
         $this->buttonList->add(
             'saveandcontinue',
-            array(
+            [
                 'label' => __('Save and Continue Edit'),
                 'class' => 'save',
-                'data_attribute' => array(
-                    'mage-init' => array('button' => array('event' => 'saveAndContinueEdit', 'target' => '#edit_form'))
-                )
-            ),
+                'data_attribute' => [
+                    'mage-init' => ['button' => ['event' => 'saveAndContinueEdit', 'target' => '#edit_form']]
+                ]
+            ],
             -100
         );
-
     }
 
     /**

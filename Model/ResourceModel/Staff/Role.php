@@ -8,6 +8,7 @@
 namespace Magestore\Appadmin\Model\ResourceModel\Staff;
 
 use Magento\Framework\Exception\LocalizedException;
+
 /**
  * Class Role
  * @package Magestore\Appadmin\Model\ResourceModel\Staff

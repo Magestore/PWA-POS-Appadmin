@@ -6,7 +6,6 @@
 
 namespace Magestore\Appadmin\Setup;
 
-
 use Magento\Framework\Setup\InstallDataInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
 use Magento\Framework\Setup\ModuleDataSetupInterface;
@@ -68,8 +67,7 @@ class InstallData implements InstallDataInterface
         \Magestore\Appadmin\Model\Staff\StaffFactory $staffFactory,
         \Magestore\Webpos\Model\ResourceModel\Location\Location\CollectionFactory $locationCollectionFactory,
         \Magento\Framework\Module\Manager $moduleManager
-    )
-    {
+    ) {
         $this->_userCollectionFactory = $userCollectionFactory;
         $this->_roleFactory = $roleFactory;
         $this->_authorizationRuleFactory = $authorizationRuleFactory;
@@ -88,15 +86,15 @@ class InstallData implements InstallDataInterface
         /*
          * Setup Role Data
          */
-        $roleData = array(
+        $roleData = [
             'name' => 'Cashier'
-        );
+        ];
         $role = $this->_roleFactory->create()->setData($roleData)->save();
 
-        $authorizeRule = array(
+        $authorizeRule = [
             'role_id' => $role->getId(),
             'resource_id' => self::DEFAULT_RESOURCE_ACCESS
-        );
+        ];
         $this->_authorizationRuleFactory->create()->setData($authorizeRule)->save();
 
         /*
@@ -115,7 +113,7 @@ class InstallData implements InstallDataInterface
             }
         }
         if ($userModel->getId()) {
-            $staffData = array(
+            $staffData = [
                 'role_id' => $role->getId(),
                 'username' => $userModel->getUsername(),
                 'password' => $userModel->getPassword(),
@@ -124,7 +122,7 @@ class InstallData implements InstallDataInterface
                 'location_ids' => $locationId,
                 'not_encode' => self::NOT_ENCODE_PASSWORD,
                 'status' => self::IS_ACTIVE
-            );
+            ];
             $this->_staffFactory->create()->setData($staffData)->save();
         }
 

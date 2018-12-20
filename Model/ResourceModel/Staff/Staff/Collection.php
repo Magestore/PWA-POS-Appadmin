@@ -11,8 +11,7 @@ namespace Magestore\Appadmin\Model\ResourceModel\Staff\Staff;
  * Class Collection
  * @package Magestore\Appadmin\Model\ResourceModel\Staff\Staff
  */
-class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection
-    implements \Magestore\Appadmin\Api\Data\Staff\StaffSearchResultsInterface
+class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\AbstractCollection implements \Magestore\Appadmin\Api\Data\Staff\StaffSearchResultsInterface
 {
     /**
      *

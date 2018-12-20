@@ -5,11 +5,13 @@
  */
 
 namespace Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit\Tab;
+
 /**
  * Class Staff
  * @package Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit\Tab
  */
-class Staff extends \Magento\Backend\Block\Widget\Grid\Extended {
+class Staff extends \Magento\Backend\Block\Widget\Grid\Extended
+{
 
     /**
      * @var \Magestore\Appadmin\Model\ResourceModel\Staff\Staff\CollectionFactory
@@ -27,9 +29,8 @@ class Staff extends \Magento\Backend\Block\Widget\Grid\Extended {
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Backend\Helper\Data $backendHelper,
         \Magestore\Appadmin\Model\ResourceModel\Staff\Staff\CollectionFactory $staffCollectionFactory,
-        array $data = array()
-    )
-    {
+        array $data = []
+    ) {
         $this->_staffCollectionFactory = $staffCollectionFactory;
         parent::__construct($context, $backendHelper, $data);
     }
@@ -37,7 +38,8 @@ class Staff extends \Magento\Backend\Block\Widget\Grid\Extended {
     /**
      *
      */
-    public function _construct() {
+    public function _construct()
+    {
         parent::_construct();
         $this->setId('staff_grid');
         $this->setDefaultSort('staff_id');
@@ -45,14 +47,15 @@ class Staff extends \Magento\Backend\Block\Widget\Grid\Extended {
         $this->setSaveParametersInSession(false);
         $this->setUseAjax(true);
         if ($this->getRequest()->getParam('id')) {
-            $this->setDefaultFilter(array('in_staff' => 1));
+            $this->setDefaultFilter(['in_staff' => 1]);
         }
     }
 
     /**
      * @return $this
      */
-    protected function _prepareCollection() {
+    protected function _prepareCollection()
+    {
         $collection = $this->_staffCollectionFactory->create();
         $roleId = (int)$this->getRequest()->getParam('id');
         $collection->addFieldToFilter('role_id', $roleId);
@@ -65,39 +68,40 @@ class Staff extends \Magento\Backend\Block\Widget\Grid\Extended {
      * @return $this
      * @throws \Exception
      */
-    protected function _prepareColumns() {
-        $this->addColumn('staff_id', array(
+    protected function _prepareColumns()
+    {
+        $this->addColumn('staff_id', [
             'header' => __('ID'),
             'width' => '50px',
             'index' => 'staff_id',
             'type' => 'number',
-        ));
+        ]);
 
-        $this->addColumn('username', array(
+        $this->addColumn('username', [
             'header' => __('User Name'),
             'index' => 'username'
-        ));
+        ]);
 
-        $this->addColumn('staff_name', array(
+        $this->addColumn('staff_name', [
             'header' => __('Display Name'),
             'index' => 'name'
-        ));
+        ]);
 
-        $this->addColumn('email', array(
+        $this->addColumn('email', [
             'header' => __('Email'),
             'index' => 'email'
-        ));
+        ]);
 
-        $this->addColumn('status', array(
+        $this->addColumn('status', [
             'header' => __('Status'),
             'index' => 'status',
             'type' => 'options',
-            'options' => array(
+            'options' => [
                 1 => 'Enable',
                 2 => 'Disable',
-            ),
+            ],
 
-        ));
+        ]);
 
         return parent::_prepareColumns();
     }
@@ -105,16 +109,18 @@ class Staff extends \Magento\Backend\Block\Widget\Grid\Extended {
     /**
      * @return mixed|string
      */
-    public function getGridUrl() {
+    public function getGridUrl()
+    {
         return $this->getData('grid_url') ? $this->getData('grid_url') :
-            $this->getUrl('*/*/staffgrid', array('_current' => true, 'id' => $this->getRequest()->getParam('id')));
+            $this->getUrl('*/*/staffgrid', ['_current' => true, 'id' => $this->getRequest()->getParam('id')]);
     }
 
     /**
      * @param \Magento\Framework\DataObject $row
      * @return string
      */
-    public function getRowUrl($row) {
+    public function getRowUrl($row)
+    {
         return '';
     }
 }

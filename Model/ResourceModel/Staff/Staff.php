@@ -26,5 +26,4 @@ class Staff extends \Magento\Framework\Model\ResourceModel\Db\AbstractDb
     {
         $this->_init('webpos_staff', 'staff_id');
     }
-
 }

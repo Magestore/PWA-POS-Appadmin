@@ -66,5 +66,4 @@ class MassDelete extends AbstractMassAction
 
         return $resultRedirect;
     }
-
 }

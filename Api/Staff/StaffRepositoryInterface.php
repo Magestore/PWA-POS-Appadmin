@@ -68,5 +68,4 @@ interface StaffRepositoryInterface
      * @return \Magestore\Appadmin\Api\Data\Staff\StaffInterface[]
      */
     public function getAllStaff();
-
 }

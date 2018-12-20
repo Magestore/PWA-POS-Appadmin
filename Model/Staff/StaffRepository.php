@@ -5,6 +5,7 @@
  */
 
 namespace Magestore\Appadmin\Model\Staff;
+
 /**
  * Class StaffManagement
  * @package Magestore\Appadmin\Model\Staff
@@ -36,7 +37,7 @@ class StaffRepository implements \Magestore\Appadmin\Api\Staff\StaffRepositoryIn
         \Magestore\Appadmin\Model\ResourceModel\Staff\Staff $staffResource,
         \Magestore\Appadmin\Model\ResourceModel\Staff\Staff\CollectionFactory $staffCollectionFactory,
         \Magestore\Appadmin\Api\Data\Staff\StaffSearchResultsInterfaceFactory $staffSearchResultsInterfaceFactory
-    ){
+    ) {
         $this->staffFactory = $staffFactory;
         $this->staffResource = $staffResource;
         $this->staffSearchResults = $staffSearchResultsInterfaceFactory;
@@ -46,7 +47,8 @@ class StaffRepository implements \Magestore\Appadmin\Api\Staff\StaffRepositoryIn
     /**
      * {@inheritdoc}
      */
-    public function save(\Magestore\Appadmin\Api\Data\Staff\StaffInterface $staff) {
+    public function save(\Magestore\Appadmin\Api\Data\Staff\StaffInterface $staff)
+    {
         try {
             /* @var \Magestore\Appadmin\Model\Staff\Staff $staff */
             /* @var \Magestore\Appadmin\Model\Staff\Staff $staffModel */
@@ -60,7 +62,8 @@ class StaffRepository implements \Magestore\Appadmin\Api\Staff\StaffRepositoryIn
     /**
      * {@inheritdoc}
      */
-    public function getById($staffId) {
+    public function getById($staffId)
+    {
         $staff = $this->staffFactory->create();
         $this->staffResource->load($staff, $staffId);
         if (!$staff->getId()) {
@@ -74,7 +77,8 @@ class StaffRepository implements \Magestore\Appadmin\Api\Staff\StaffRepositoryIn
     /**
      * {@inheritdoc}
      */
-    public function getByRoleId($roleId) {
+    public function getByRoleId($roleId)
+    {
         $collection = $this->staffCollectionFactory->create();
         $collection->addFieldToFilter('role_id', $roleId);
         return $collection;
@@ -83,7 +87,8 @@ class StaffRepository implements \Magestore\Appadmin\Api\Staff\StaffRepositoryIn
     /**
      * {@inheritdoc}
      */
-    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria) {
+    public function getList(\Magento\Framework\Api\SearchCriteriaInterface $searchCriteria)
+    {
         $collection = $this->staffCollectionFactory->create();
         //Add filters from root filter group to the collection
         /** @var FilterGroup $group */
@@ -142,10 +147,10 @@ class StaffRepository implements \Magestore\Appadmin\Api\Staff\StaffRepositoryIn
     /**
      * {@inheritdoc}
      */
-    public function getAllStaff(){
+    public function getAllStaff()
+    {
         /** @var \Magestore\Appadmin\Model\ResourceModel\Staff\Staff\Collection $collection */
         $collection = $this->staffCollectionFactory->create();
         return $collection;
     }
-
 }

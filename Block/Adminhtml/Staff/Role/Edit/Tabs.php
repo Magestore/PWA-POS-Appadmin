@@ -5,6 +5,7 @@
  */
 
 namespace Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit;
+
 /**
  * Class Tabs
  * @package Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit
@@ -41,7 +42,7 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
             ]
         );
         $permissionBlock = $this->getLayout()->createBlock('Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit\Tab\Permission');
-        $permissionBlock->addChild('block_discount_percent','Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit\Tab\Permission\Discount');
+        $permissionBlock->addChild('block_discount_percent', 'Magestore\Appadmin\Block\Adminhtml\Staff\Role\Edit\Tab\Permission\Discount');
         $this->addTab(
             'webpos_permission',
             [
@@ -58,11 +59,10 @@ class Tabs extends \Magento\Backend\Block\Widget\Tabs
                 'label' => __('Staff List'),
                 'title' => __('Staff List'),
                 'class' => 'ajax',
-                'url' => $this->getUrl('*/*/staff', array('_current' => true, 'id' => $this->getRequest()->getParam('id')))
+                'url' => $this->getUrl('*/*/staff', ['_current' => true, 'id' => $this->getRequest()->getParam('id')])
             ]
         );
 
         return parent::_beforeToHtml();
     }
-
 }

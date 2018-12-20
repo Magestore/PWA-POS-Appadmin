@@ -8,12 +8,12 @@ namespace Magestore\Appadmin\Model\Source\Adminhtml;
 
 /**
  * class \Magestore\Appadmin\Model\Source\Adminhtml\Status
- * 
+ *
  * Status source model
  * Methods:
  *  getOptionArray
  *  toOptionArray
- * 
+ *
  * @category    Magestore
  * @package     Magestore_Appadmin
  * @module      Appadmin
@@ -48,5 +48,4 @@ class Status implements \Magento\Framework\Option\ArrayInterface
     {
         return [self::STATUS_ENABLED => __('Enabled'), self::STATUS_DISABLED => __('Disabled')];
     }
-
 }

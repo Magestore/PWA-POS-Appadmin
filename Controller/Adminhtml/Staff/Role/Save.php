@@ -48,9 +48,9 @@ class Save extends \Magestore\Appadmin\Controller\Adminhtml\Staff\Role
         try {
             $role->save();
             $roleId = $role->getRoleId();
-            $resources = array();
+            $resources = [];
             if (isset($data['all']) && $data['all']) {
-                $resources = array('Magestore_Appadmin::all');
+                $resources = ['Magestore_Appadmin::all'];
             } else {
                 if (isset($data['resource'])) {
                     $resources = $data['resource'];
@@ -67,7 +67,7 @@ class Save extends \Magestore\Appadmin\Controller\Adminhtml\Staff\Role
             // check if resource change and not have permission to use pos
             $checkPermissionCheckout = false;
             foreach ($resources as $resource) {
-                if(in_array($resource, ['Magestore_Appadmin::all', 'Magestore_Webpos::manage_pos'])) {
+                if (in_array($resource, ['Magestore_Appadmin::all', 'Magestore_Webpos::manage_pos'])) {
                     $checkPermissionCheckout = true;
                 }
                 $authorizeRuleCollection = $this->_objectManager->create('Magestore\Appadmin\Model\Staff\AuthorizationRule');
@@ -77,7 +77,7 @@ class Save extends \Magestore\Appadmin\Controller\Adminhtml\Staff\Role
             }
 
             // dispatch event to force sign out
-            if(!$checkPermissionCheckout) {
+            if (!$checkPermissionCheckout) {
                 $staffs = $this->staffRepository->getByRoleId($role->getRoleId());
                 foreach ($staffs as $staff) {
                     $this->dispatchService->dispatchEventForceSignOut($staff->getStaffId());
@@ -100,6 +100,5 @@ class Save extends \Magestore\Appadmin\Controller\Adminhtml\Staff\Role
             return $resultRedirect->setPath('*/*/edit', ['id' => $roleId]);
         }
         return $resultRedirect->setPath('*/*/');
-
     }
 }

@@ -43,5 +43,4 @@ class Edit extends \Magestore\Appadmin\Controller\Adminhtml\Staff\Staff
         $resultPage->getConfig()->getTitle()->prepend($pageTitle);
         return $resultPage;
     }
-
 }

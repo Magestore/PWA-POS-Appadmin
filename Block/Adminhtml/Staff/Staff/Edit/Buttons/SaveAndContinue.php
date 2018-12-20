@@ -6,13 +6,14 @@
 
 namespace Magestore\Appadmin\Block\Adminhtml\Staff\Staff\Edit\Buttons;
 
-class SaveAndContinue extends Generic {
+class SaveAndContinue extends Generic
+{
     /**
      * @return array
      */
     public function getButtonData()
     {
-        if(!$this->authorization->isAllowed('Magestore_Appadmin::staffs')) {
+        if (!$this->authorization->isAllowed('Magestore_Appadmin::staffs')) {
             return [];
         }
 

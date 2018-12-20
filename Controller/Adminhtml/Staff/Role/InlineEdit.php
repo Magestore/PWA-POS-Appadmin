@@ -57,8 +57,7 @@ class InlineEdit extends \Magento\Backend\App\Action
         \Magestore\Appadmin\Api\Data\Staff\RoleInterfaceFactory $roleInterfaceFactory,
         \Magestore\Appadmin\Api\Staff\RoleRepositoryInterface $roleRepository,
         \Psr\Log\LoggerInterface $logger
-    )
-    {
+    ) {
         $this->resultJsonFactory = $resultJsonFactory;
         $this->dataObjectHelper = $dataObjectHelper;
         $this->roleInterfaceFactory = $roleInterfaceFactory;
@@ -125,5 +124,4 @@ class InlineEdit extends \Magento\Backend\App\Action
     {
         return (bool)$this->getMessageManager()->getMessages(true)->getCount();
     }
-
 }

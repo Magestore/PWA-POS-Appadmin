@@ -38,8 +38,7 @@ class RoleRepository implements \Magestore\Appadmin\Api\Staff\RoleRepositoryInte
         \Magestore\Appadmin\Model\ResourceModel\Staff\Role $roleResource,
         \Magestore\Appadmin\Model\ResourceModel\Staff\Role\CollectionFactory $roleCollectionFactory,
         \Magestore\Appadmin\Api\Data\Staff\RoleSearchResultsInterfaceFactory $roleSearchResultsInterfaceFactory
-    )
-    {
+    ) {
         $this->roleFactory = $roleFactory;
         $this->roleResource = $roleResource;
         $this->roleSearchResults = $roleSearchResultsInterfaceFactory;
@@ -144,5 +143,4 @@ class RoleRepository implements \Magestore\Appadmin\Api\Staff\RoleRepositoryInte
         $collection = $this->roleCollectionFactory->create();
         return $collection;
     }
-
 }

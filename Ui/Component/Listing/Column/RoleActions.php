@@ -69,7 +69,6 @@ class RoleActions extends Column
                         'href' => $this->_urlBuilder->getUrl($this->_editUrl, ['id' => $item['role_id']]),
                         'label' => __('Edit')
                     ];
-
                 }
             }
         }

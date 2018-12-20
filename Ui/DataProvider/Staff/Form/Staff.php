@@ -10,7 +10,8 @@ use Magento\Ui\DataProvider\Modifier\PoolInterface;
 use Magestore\Appadmin\Model\ResourceModel\Staff\Staff\CollectionFactory;
 use Magestore\Appadmin\Model\ResourceModel\Staff\Staff\Collection;
 
-class Staff extends \Magento\Ui\DataProvider\AbstractDataProvider {
+class Staff extends \Magento\Ui\DataProvider\AbstractDataProvider
+{
 
     /**
      * @var \Magento\Framework\Registry
@@ -60,7 +61,7 @@ class Staff extends \Magento\Ui\DataProvider\AbstractDataProvider {
     public function getData()
     {
         $staff = $this->_coreRegistry->registry('current_staff');
-        if($staff && $staff->getId()){
+        if ($staff && $staff->getId()) {
             $data = $staff->getData();
 
 //            if ($data['pos_ids']) {

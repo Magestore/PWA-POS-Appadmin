@@ -27,7 +27,8 @@ class Discount extends \Magento\Backend\Block\Template
      * Get discount value
      * @return float
      */
-    public function getMaxDiscountPercent(){
+    public function getMaxDiscountPercent()
+    {
         $rid = $this->_request->getParam('id', false);
         return $this->_webposAclRetriever->getMaxDiscountPercentByRole($rid);
     }

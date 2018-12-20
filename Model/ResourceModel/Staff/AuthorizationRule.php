@@ -5,6 +5,7 @@
  * See COPYING.txt for license details.
  */
 namespace Magestore\Appadmin\Model\ResourceModel\Staff;
+
 /**
  * class \Magestore\Appadmin\Model\ResourceModel\Staff\AuthorizationRule
  *

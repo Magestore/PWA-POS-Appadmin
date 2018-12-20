@@ -47,7 +47,7 @@ class Save extends \Magestore\Appadmin\Controller\Adminhtml\Staff\Staff
         $username = $data['username'];
         if ($username) {
             $findUsernameExist = $this->staffInterfaceFactory->create()->load($username, 'username');
-             if ($findUsernameExist->getId() && $findUsernameExist->getId() != $modelId) {
+            if ($findUsernameExist->getId() && $findUsernameExist->getId() != $modelId) {
                 $this->messageManager->addErrorMessage(__('Username already exists.', $username));
                 return $resultRedirect->setPath('*/*/edit', ['id' => $this->getRequest()->getParam('staff_id')]);
             }
@@ -83,7 +83,7 @@ class Save extends \Magestore\Appadmin\Controller\Adminhtml\Staff\Staff
             foreach ($result as $message) {
                 $this->messageManager->addErrorMessage($message);
             }
-            $this->_redirect('*/*/edit', array('_current' => true));
+            $this->_redirect('*/*/edit', ['_current' => true]);
             return $resultRedirect->setPath('*/*/');
         }
         try {

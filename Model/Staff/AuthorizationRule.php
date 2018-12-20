@@ -5,6 +5,7 @@
  */
 
 namespace Magestore\Appadmin\Model\Staff;
+
 /**
  * Class AuthorizationRule
  * @package Magestore\Webpos\Model\Staff

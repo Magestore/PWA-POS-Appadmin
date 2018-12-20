@@ -76,8 +76,7 @@ class General extends AbstractModifier
         \Magestore\Webpos\Model\Source\Adminhtml\Location $location,
         \Magestore\Webpos\Model\Source\Adminhtml\Pos $pos,
         \Magestore\Appadmin\Model\Source\Adminhtml\Role $role
-    )
-    {
+    ) {
         parent::__construct($objectManager, $registry, $request, $urlBuilder);
         $this->optionStoreView = $optionStoreView;
         $this->customerGroup = $customerGroup;
@@ -188,7 +187,7 @@ class General extends AbstractModifier
         if (!$this->request->getParam('id')) {
             $children['password']['arguments']['data']['config']['validation']['required-entry'] = true;
             $children['password_confirmation']['arguments']['data']['config']['validation']['required-entry'] = true;
-        }else{
+        } else {
             $children['password']['arguments']['data']['config']['label'] = __("New Password");
         }
         return $children;

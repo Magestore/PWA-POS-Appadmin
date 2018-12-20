@@ -6,6 +6,7 @@
  */
 
 namespace Magestore\Appadmin\Controller\Adminhtml\Staff;
+
 /**
  * class \Magestore\Appadmin\Controller\Adminhtml\Staff\Role
  *
@@ -117,5 +118,4 @@ abstract class Role extends \Magento\Backend\App\Action
     {
         return $this->_authorization->isAllowed('Magestore_Appadmin::roles');
     }
-
 }

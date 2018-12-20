@@ -5,6 +5,7 @@
  */
 
 namespace Magestore\Appadmin\Model\Source\Adminhtml;
+
 /**
  * Class Role
  * @package Magestore\Appadmin\Model\Source\Adminhtml
@@ -22,7 +23,7 @@ class Role implements \Magento\Framework\Option\ArrayInterface
      */
     public function __construct(
         \Magestore\Appadmin\Api\Staff\RoleRepositoryInterface $roleRepository
-    ){
+    ) {
         $this->roleRepository = $roleRepository;
     }
 
@@ -53,5 +54,4 @@ class Role implements \Magento\Framework\Option\ArrayInterface
         }
         return $allRoleArray;
     }
-
 }

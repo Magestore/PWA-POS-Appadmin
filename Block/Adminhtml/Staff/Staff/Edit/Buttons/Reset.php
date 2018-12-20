@@ -6,7 +6,8 @@
 
 namespace Magestore\Appadmin\Block\Adminhtml\Staff\Staff\Edit\Buttons;
 
-class Reset extends Generic {
+class Reset extends Generic
+{
     /**
      * @return array
      */

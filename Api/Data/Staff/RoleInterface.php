@@ -96,5 +96,4 @@ interface RoleInterface
      * @return $this
      */
     public function setMaximumDiscountPercent($discount);
-
 }

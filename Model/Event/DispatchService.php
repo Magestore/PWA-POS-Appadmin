@@ -30,7 +30,8 @@ class DispatchService implements \Magestore\Appadmin\Api\Event\DispatchServiceIn
     /**
      * @inheritdoc
      */
-    public function dispatchEventForceSignOut($staffId, $posId = null){
+    public function dispatchEventForceSignOut($staffId, $posId = null)
+    {
         $this->eventManager->dispatch(self::EVENT_NAME_FORCE_SIGN_OUT, ['staff_id' => $staffId, 'pos_id' => $posId]);
         return true;
     }
@@ -38,7 +39,8 @@ class DispatchService implements \Magestore\Appadmin\Api\Event\DispatchServiceIn
     /**
      * @inheritdoc
      */
-    public function dispatchEventForceChangePos($staffId, $posId){
+    public function dispatchEventForceChangePos($staffId, $posId)
+    {
         $this->eventManager->dispatch(self::EVENT_NAME_FORCE_CHANGE_POS, ['staff_id' => $staffId, 'pos_id' => $posId]);
         return true;
     }

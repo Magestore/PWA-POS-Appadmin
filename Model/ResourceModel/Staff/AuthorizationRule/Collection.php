@@ -33,8 +33,10 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
      */
     protected function _construct()
     {
-        $this->_init('Magestore\Appadmin\Model\Staff\AuthorizationRule',
-            'Magestore\Appadmin\Model\ResourceModel\Staff\AuthorizationRule');
+        $this->_init(
+            'Magestore\Appadmin\Model\Staff\AuthorizationRule',
+            'Magestore\Appadmin\Model\ResourceModel\Staff\AuthorizationRule'
+        );
     }
 
     public function getByRoles($roleId)
@@ -42,5 +44,4 @@ class Collection extends \Magento\Framework\Model\ResourceModel\Db\Collection\Ab
         $this->addFieldToFilter('role_id', (int)$roleId);
         return $this;
     }
-
 }

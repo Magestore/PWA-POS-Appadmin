@@ -10,11 +10,11 @@ use Magento\Framework\Data\OptionSourceInterface;
 
 /**
  * class \Magestore\Webpos\Ui\Component\Listing\Column\Status
- * 
+ *
  * Web POS Status Actions
  * Methods:
  *  toOptionArray
- * 
+ *
  * @category    Magestore
  * @package     Magestore\Webpos\Ui\Component\Listing\Column
  * @module      Webpos
@@ -31,7 +31,7 @@ class Status implements OptionSourceInterface
      */
     const STATUS_DISABLED = 2;
     /**
-     * 
+     *
      * @return array
      */
     public function toOptionArray()

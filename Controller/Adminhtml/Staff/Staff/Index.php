@@ -5,6 +5,7 @@
  * See COPYING.txt for license details.
  */
 namespace Magestore\Appadmin\Controller\Adminhtml\Staff\Staff;
+
 /**
  * class \Magestore\Appadmin\Controller\Adminhtml\Staff\Staff\Index
  *

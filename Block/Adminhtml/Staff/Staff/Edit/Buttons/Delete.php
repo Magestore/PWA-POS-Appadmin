@@ -6,7 +6,8 @@
 
 namespace Magestore\Appadmin\Block\Adminhtml\Staff\Staff\Edit\Buttons;
 
-class Delete extends Generic {
+class Delete extends Generic
+{
     /**
      * @return array
      */
@@ -16,7 +17,7 @@ class Delete extends Generic {
             return [];
         }
 
-        if(!$this->authorization->isAllowed('Magestore_Appadmin::manageStaffs')) {
+        if (!$this->authorization->isAllowed('Magestore_Appadmin::manageStaffs')) {
             return [];
         }
 

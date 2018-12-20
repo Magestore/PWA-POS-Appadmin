@@ -6,6 +6,7 @@
  */
 
 namespace Magestore\Appadmin\Controller\Adminhtml\Staff\Role;
+
 /**
  * class \Magestore\Appadmin\Controller\Adminhtml\Staff\Role\Index
  *

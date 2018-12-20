@@ -103,7 +103,8 @@ class AbstractModifier implements ModifierInterface
      * @param array $meta
      * @return array
      */
-    public function modifyMeta(array $meta){
+    public function modifyMeta(array $meta)
+    {
         return $meta;
     }
 
@@ -112,7 +113,8 @@ class AbstractModifier implements ModifierInterface
      *
      * @return bool
      */
-    public function getVisible(){
+    public function getVisible()
+    {
         return $this->visible;
     }
 
@@ -121,7 +123,8 @@ class AbstractModifier implements ModifierInterface
      *
      * @return bool
      */
-    public function getOpened(){
+    public function getOpened()
+    {
         return $this->opened;
     }
 
@@ -130,7 +133,8 @@ class AbstractModifier implements ModifierInterface
      *
      * @return int
      */
-    public function getSortOrder(){
+    public function getSortOrder()
+    {
         return $this->sortOrder;
     }
 
@@ -138,7 +142,8 @@ class AbstractModifier implements ModifierInterface
      * @param $field
      * @return array
      */
-    public function setDefaultValue($field, $value){
+    public function setDefaultValue($field, $value)
+    {
         $field['arguments']['data']['config']['default'] = $value;
         return $field;
     }
@@ -154,7 +159,8 @@ class AbstractModifier implements ModifierInterface
      * @param bool $disable
      * @return array
      */
-    public function addFormField($label, $dataType , $formElement, $sortOrder, $validation = [], $defaultValue = null, $notice = '', $disable = false){
+    public function addFormField($label, $dataType, $formElement, $sortOrder, $validation = [], $defaultValue = null, $notice = '', $disable = false)
+    {
         $field = [
             'arguments' => [
                 'data' => [
@@ -172,8 +178,9 @@ class AbstractModifier implements ModifierInterface
                 ],
             ],
         ];
-        if($defaultValue)
+        if ($defaultValue) {
             $field = $this->setDefaultValue($field, $defaultValue);
+        }
         return $field;
     }
 
@@ -187,7 +194,8 @@ class AbstractModifier implements ModifierInterface
      * @param bool $disabled
      * @return array
      */
-    public function addFormFieldText($label, $formElement, $sortOrder, $validation = [], $defaultValue = null, $notice = '', $disabled = false){
+    public function addFormFieldText($label, $formElement, $sortOrder, $validation = [], $defaultValue = null, $notice = '', $disabled = false)
+    {
         return $this->addFormField($label, 'text', $formElement, $sortOrder, $validation, $defaultValue, $notice, $disabled);
     }
 
@@ -202,7 +210,8 @@ class AbstractModifier implements ModifierInterface
      * @param string $classes
      * @return array
      */
-    public function addFormFieldPassword($label, $formElement, $sortOrder, $validation , $classes = '', $defaultValue = null, $notice = '', $disabled = false){
+    public function addFormFieldPassword($label, $formElement, $sortOrder, $validation, $classes = '', $defaultValue = null, $notice = '', $disabled = false)
+    {
         $field = [
             'arguments' => [
                 'data' => [
@@ -233,7 +242,8 @@ class AbstractModifier implements ModifierInterface
      * @param string $notice
      * @return array
      */
-    public function addFormFieldDate($label, $sortOrder, $validation = [], $defaultValue = null, $notice = ''){
+    public function addFormFieldDate($label, $sortOrder, $validation = [], $defaultValue = null, $notice = '')
+    {
         return $this->addFormField($label, 'date', 'date', $sortOrder, $validation, $defaultValue, $notice);
     }
 
@@ -245,7 +255,8 @@ class AbstractModifier implements ModifierInterface
      * @param string $notice
      * @return array
      */
-    public function addFormFieldTextArea($label, $sortOrder, $validation = [], $defaultValue = null, $notice = ''){
+    public function addFormFieldTextArea($label, $sortOrder, $validation = [], $defaultValue = null, $notice = '')
+    {
         return $this->addFormField($label, 'text', 'textarea', $sortOrder, $validation, $defaultValue, $notice);
     }
 
@@ -258,7 +269,12 @@ class AbstractModifier implements ModifierInterface
      * @return array
      */
     public function addFormFieldWysiwygArea(
-        $label, $sortOrder, $validation = [], $defaultValue = null, $notice = ''){
+        $label,
+        $sortOrder,
+        $validation = [],
+        $defaultValue = null,
+        $notice = ''
+    ) {
         $field = [
             'arguments' => [
                 'data' => [
@@ -276,12 +292,14 @@ class AbstractModifier implements ModifierInterface
                 ],
             ],
         ];
-        if($defaultValue)
+        if ($defaultValue) {
             $field = $this->setDefaultValue($field, $defaultValue);
+        }
         return $field;
     }
 
-    public function addSwitcherConfig($field, $switcherConfig){
+    public function addSwitcherConfig($field, $switcherConfig)
+    {
         $field['arguments']['data']['config']['switcherConfig'] = [
             'enabled' => true,
             'rules' => $switcherConfig
@@ -317,10 +335,10 @@ class AbstractModifier implements ModifierInterface
                 ],
             ],
         ];
-        if($switcherConfig){
+        if ($switcherConfig) {
             $field = $this->addSwitcherConfig($field, $switcherConfig);
         }
-        if($default){
+        if ($default) {
             $field = $this->setDefaultValue($field, $default);
         }
         return $field;
@@ -338,8 +356,15 @@ class AbstractModifier implements ModifierInterface
      * @return array
      */
     public function addFormFieldSelect(
-        $label, $options = [], $sortOrder, $validation = [], $defaultValue = null, $notice = '', $switcherConfig = null, $disabled = false
-    ){
+        $label,
+        $options = [],
+        $sortOrder,
+        $validation = [],
+        $defaultValue = null,
+        $notice = '',
+        $switcherConfig = null,
+        $disabled = false
+    ) {
         $field = [
             'arguments' => [
                 'data' => [
@@ -357,10 +382,12 @@ class AbstractModifier implements ModifierInterface
                 ],
             ],
         ];
-        if($defaultValue)
+        if ($defaultValue) {
             $field = $this->setDefaultValue($field, $defaultValue);
-        if($switcherConfig)
+        }
+        if ($switcherConfig) {
             $field = $this->addSwitcherConfig($field, $switcherConfig);
+        }
         return $field;
     }
 
@@ -376,8 +403,15 @@ class AbstractModifier implements ModifierInterface
      * @return array
      */
     public function addFormFieldMultiSelect(
-        $label, $options = [], $sortOrder, $validation = [], $defaultValue = null, $notice = '', $switcherConfig = null, $disabled = false
-    ){
+        $label,
+        $options = [],
+        $sortOrder,
+        $validation = [],
+        $defaultValue = null,
+        $notice = '',
+        $switcherConfig = null,
+        $disabled = false
+    ) {
         $field = [
             'arguments' => [
                 'data' => [
@@ -395,8 +429,9 @@ class AbstractModifier implements ModifierInterface
                 ],
             ],
         ];
-        if($defaultValue)
+        if ($defaultValue) {
             $field = $this->setDefaultValue($field, $defaultValue);
+        }
         return $field;
     }
 
@@ -407,7 +442,8 @@ class AbstractModifier implements ModifierInterface
      * @param string $block
      * @return array
      */
-    public function addHtmlContentContainer($containerName = '', $block = ''){
+    public function addHtmlContentContainer($containerName = '', $block = '')
+    {
         return [
             'arguments' => [
                 'data' => [
@@ -443,7 +479,8 @@ class AbstractModifier implements ModifierInterface
      * @param string|null $redirectUrl
      * @return array
      */
-    public function addButton($buttonTitle = '', $actions = [], $redirectUrl = null){
+    public function addButton($buttonTitle = '', $actions = [], $redirectUrl = null)
+    {
         $button = [
             'arguments' => [
                 'data' => [
@@ -457,8 +494,9 @@ class AbstractModifier implements ModifierInterface
                 ],
             ],
         ];
-        if($redirectUrl)
+        if ($redirectUrl) {
             $button['arguments']['data']['config']['redirectUrl'] = $redirectUrl;
+        }
         return $button;
     }
 
@@ -502,7 +540,8 @@ class AbstractModifier implements ModifierInterface
      * @param array $validation
      * @return array
      */
-    public function getInputNumberColumn($dataScope, $fit, $label, $sortOrder, $validation = []){
+    public function getInputNumberColumn($dataScope, $fit, $label, $sortOrder, $validation = [])
+    {
         return [
             'arguments' => [
                 'data' => [

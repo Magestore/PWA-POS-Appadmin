@@ -6,7 +6,8 @@
 
 namespace Magestore\Appadmin\Block\Adminhtml\Staff\Staff\Edit\Buttons;
 
-class Back extends Generic {
+class Back extends Generic
+{
     /**
      * @return array
      */
